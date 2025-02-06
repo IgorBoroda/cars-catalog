@@ -12,7 +12,7 @@ const CreateCarForm = ({setCars}) => {
 
   const createCar = e => {
     e.preventDefault()
-    setCars(prev=>[...prev,{id:prev.lenght+1,...data}])
+    setCars(prev=>[{id:prev.length+1,...data},...prev])
             setData(clearData);
            }
   return (
@@ -50,13 +50,15 @@ const CreateCarForm = ({setCars}) => {
 export default CreateCarForm
 
 
-// оаоаоаооа
+
 
 
 //======================================================
+
 // import { useState } from 'react'
 // import styles from './CreateCarForm.module.css'
 // const clearData={name:'',price:'',image:'',};
+
 // const CreateCarForm = ({setCars}) => {
 //   const [data,setData] = useState(
 //     {
@@ -67,13 +69,7 @@ export default CreateCarForm
 
 //   const createCar = e => {
 //     e.preventDefault()
-//     setCars(prev=>[
-//               {
-//                 id:prev.lenght+1,
-//                 ...data
-//               }, 
-//               ...prev]
-//             )
+//     setCars(prev=>[...prev,{id:prev.length+1,...data}])
 //             setData(clearData);
 //            }
 //   return (
@@ -90,6 +86,7 @@ export default CreateCarForm
 //         placeholder='Price' 
 //         onChange={e => setData(prev=>({...prev,price:e.target.value}))}
 //         value={data.price}
+//         type='number'
 //       />
 //       <input 
 //       placeholder='Image' 
@@ -100,7 +97,8 @@ export default CreateCarForm
 //       <button 
 //       className='btn'
 //       type="button" 
-//       onClick={e => createCar(e)}>Create</button>
+//       onClick={e => createCar(e)}
+//       >Create </button>
 
 
 //     </form>
@@ -108,3 +106,5 @@ export default CreateCarForm
 // } // - конец функции
 
 // export default CreateCarForm
+//==================================================//
+
