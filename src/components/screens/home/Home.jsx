@@ -2,22 +2,25 @@ import { useEffect, useState } from 'react';
 import CarItem from './car-item/Caritem.jsx';
 import CreateCarForm from './create-car-form/CreateCarForm.jsx';
 import { CarService } from '../../../services/car.service.js';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
 
   const [cars_, setCars] = useState([]);
   useEffect(()=>{
     const fetcData = async ()=>{
-      const response = await CarService.getAll();
-      setCars(response);
+      const data = await CarService.getAll();
+      setCars(data);
     }
     fetcData();
   },[])
 
+ const nav = useNavigate();
 
   return (
     <div>
       <h1>Cars catalog</h1>
+      <button onClick={()=>nav('/car/2')}>go</button>
       <CreateCarForm setCars={setCars} />
       <div>
         {cars_?.length ? 

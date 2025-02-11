@@ -11,6 +11,12 @@
   "name": "Mersedes",
   "price": 34000,
   "image": "https://drive.place/images/mercedes/mercedes_s_klasse_vii_sedan_1.jpg"
+},
+  {
+  "id": 3,
+  "name": "Ferrari",
+  "price": 300000,
+  "image": "https://cdn.ferrari.com/cms/network/media/img/resize/617a6c931823990948a5b059-ferrari-genuine-car-configurator-2021-news-l"
 }
   ]
 } 
