@@ -1,3 +1,8 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *{
   margin: 0;
   padding: 0;
@@ -34,5 +39,5 @@ h1{
 }
 
 .btn:hover{
-  background-color: rgb(158, 53, 53);
+  background-color: #9e3535;
 }

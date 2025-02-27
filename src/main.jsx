@@ -1,21 +1,20 @@
-
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import Home from './components/screens/home/Home'
-import OtherProgram_ from './OtherProgram/OtherProgram.jsx'; // Импорт компонента
-
-import './assets/style/global.css'
+import './index.css'
 import Router from './components/Router.jsx'
+import AuthProvider from './providers/AuthProvider.jsx'
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query" // <-- исправленный импорт
+
+const queryClient = new QueryClient()
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/* <Home /> */}
-    <Router/>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <Router />
+      </AuthProvider>
+    </QueryClientProvider>
   </StrictMode>
 );
 
 
-
-    // <hr style={{ margin: '50px 0', border: '1px solid #ccc' }} />  {/* Добавляем разделительную линию */}
-    // <div style={{ marginTop: '100px', marginBottom: '100px' }}>  {/* Добавляем отступ сверху */}
-    {/* <OtherProgram_ />
-    </div> */}

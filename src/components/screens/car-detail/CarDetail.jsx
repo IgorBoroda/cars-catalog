@@ -4,6 +4,9 @@ import { useParams } from "react-router-dom"
 import CarItem from "../home/car-item/Caritem"
 import { CarService } from '../../../services/car.service.js';
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider.jsx";
+import { withAuth } from "../../../HOC/withAuth.jsx";
 
 const CarDetail = ()=>{
 const {id} = useParams()
@@ -18,15 +21,16 @@ const [car,setCar] = useState([0])
      fetchData();
    },[id])
    if (!car?.name)return <p>Loading...</p>
+
   return <div>
          <Link 
          className='btn'
          type="button" 
          to='/'>Back</Link>
-         <CarItem car = {car}/>
+         <CarItem car = {car} isDetale = {true}/>
          </div>
 }
-export default CarDetail
+export default withAuth(CarDetail);
 
 
   
