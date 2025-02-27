@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider.jsx';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
+import { useAuth } from '../../../hooks/useAuth.js';
+import Header from '../../ui/Header.jsx';
 
 
 function Home() {
@@ -15,7 +17,7 @@ function Home() {
   });
 
   const nav = useNavigate();
-  const { user, setUser } = useContext(AuthContext); // ✅ useContext вызывается всегда
+
 
   return (
     <div>
@@ -32,31 +34,7 @@ function Home() {
           </div>
           <br />
           <h1 className="text-2xl">Cars catalog</h1>
-          {user ? (
-            <>
-              <h2 className="text-xl m-2">Welcome, {user.name}!</h2>
-              <button
-                className="bg-[#f3f0f0] text-black mx-2 p-1 rounded-md"
-                onClick={() => setUser(null)}
-              >
-                Logout
-              </button>
-            </>
-          ) : (
-            <button
-              className="bg-[#fff] text-black p-1 mx-2 rounded-md"
-              onClick={() => setUser({ name: "Igor" })}
-            >
-              Login
-            </button>
-          )}
-
-          <button
-            className="bg-[#fff] text-black p-1 rounded-md px-3"
-            onClick={() => nav("/car/2")}
-          >
-            go
-          </button>
+          <Header/>
           <CreateCarForm />
           <div>
             {data?.length ? (
